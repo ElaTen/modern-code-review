@@ -46,3 +46,4 @@ int main(){
 	cout << game[2][0] << " " << game[2][1] << " " << game[2][2] << endl;
 	return 0;
 }
+
