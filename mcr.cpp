@@ -1,3 +1,8 @@
+#include <iostream>
+#include <limits>
+
+using namespace std;
+
 bool isWin(char game[3][3]){
 	bool win = false;
 	if (game[0][0] == game[0][1] && game[0][1] == game[0][2] && (game[0][0] == 'X' || game[0][0] == 'O')) win = true;
@@ -29,6 +34,12 @@ int main(){
 			do {
     			cout << "Which cell to mark? i:[1..3], j:[1..3]: ";
     			cin >> i >> j;
+				if (cin.fail()) {
+					cout << "Invalid input. Please enter numbers only.\n";
+					cin.clear(); // Clear the error flag
+					cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard bad input
+					continue; // Ask for input again
+				}
     			i--; j--;
     			if (i < 0 || i > 2 || j < 0 || j > 2) {
         		cout << "Invalid position. Try again.\n";
